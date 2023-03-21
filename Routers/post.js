@@ -1,14 +1,19 @@
 const router = require('express').Router();
 const farmerPosts = require('../Models/farmerPosts');
 
-router.post('/:id/:state/:text',async(req,res)=>{
-    const responce = await new farmerPosts({
-       text:req.params.text,
-       uid:req.params.id,
-       state:req.params.state
-    })
-    await responce.save();
-    res.send("Post send Sucessfully.......");
+router.post("/:id/:state/:text",async(req,res)=>{
+    try {
+        const responce = await new farmerPosts({ 
+           text:req.body.text,
+           uid:req.body.id,
+           state:req.body.state
+        })
+        await responce.save();
+        res.send("Post send Sucessfully.......");
+        
+    } catch (error) {
+        console.log("error"+error);
+    }
 });
 
 // all state post
