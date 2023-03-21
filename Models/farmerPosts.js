@@ -2,10 +2,6 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
-    img:{
-        type:String,
-        required:true
-    },
     text:{
         type:String,
         require:true
@@ -18,6 +14,6 @@ const PostSchema = new mongoose.Schema({
         type:String,
         require:true
     }
-})
+},{timestamps:true});
 
 module.exports = new mongoose.model('Post',PostSchema);
