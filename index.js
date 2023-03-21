@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false })); 
 
-app.use('/api/upload',post);
+app.use('api/upload',post);
 
 // listening
 app.listen(port,()=>{
