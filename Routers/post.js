@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const farmerPosts = require('../Models/farmerPosts');
 
-router.post("/:id/:state/:text",async(req,res)=>{
+router.post("/",async(req,res)=>{
     try {
         const responce = await new farmerPosts({ 
            text:req.body.text,
