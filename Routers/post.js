@@ -36,4 +36,29 @@ router.get('/userposts/:id',async(req,res)=>{
     }
 });
 
+// Delete Single Post
+router.delete('/:id',async(req,res)=>{
+   try {
+     const Post = await farmerPosts.findByIdAndDelete(req.params.id);
+     if(Post)
+       res.send('Post Deleted Sucessfully...');
+     res.send("wrong id of Post");   
+   } catch (error) {
+    console.log(error);
+   }
+});
+
+// Delete Multiple Posts
+router.delete('/deleteAll/:id',async(req,res)=>{
+    try {
+      const Posts = await farmerPosts.deleteMany({uid:req.params.id});
+      if(Posts)
+         res.send("Posts Deleted Sucessfully........");
+         res.send("Posts Not Deleted Because of Wrong User Id.........");
+    } catch (error) {
+     console.log(error);
+    }
+ });
+ 
+
 module.exports = router;
