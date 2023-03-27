@@ -17,9 +17,9 @@ router.post("/",async(req,res)=>{
 });
 
 // all state post
-router.get('/getuser',async(req,res)=>{
+router.get('/:state',async(req,res)=>{
     try {
-        const respo =  await farmerPosts.find({state:req.body.state});
+        const respo =  await farmerPosts.find({state:req.params.state});
         res.send(respo);
     } catch (error) {
         res.send(error);
