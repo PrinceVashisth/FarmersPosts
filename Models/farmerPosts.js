@@ -13,6 +13,10 @@ const PostSchema = new mongoose.Schema({
     state:{
         type:String,
         require:true
+    },
+    name:{
+        type:String,
+        require:true
     }
 },{timestamps:true});
 

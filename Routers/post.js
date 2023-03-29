@@ -6,13 +6,14 @@ router.post("/",async(req,res)=>{
         const responce = await new farmerPosts({ 
            text:req.body.text,
            uid:req.body.id,
-           state:req.body.state
+           state:req.body.state,
+           name:req.body.name
         })
         await responce.save();
         res.send("Post send Sucessfully.......");
         
     } catch (error) {
-        console.log("error"+error);
+        console.log(error);
     }
 });
 
